@@ -42,6 +42,7 @@ class State(MessagesState):
     in_class_lessons_url:str = "None"
     post_class_quiz_content_url:str = "None"
     error_occured: bool = False
+    error_message: str = "None"
 
 from langchain_core.messages import SystemMessage, HumanMessage,ToolMessage
 def pre_class_generator(user_query:str)->dict:
@@ -196,7 +197,7 @@ def agent_node(state:State):
     if state.get("in_class_content_generated", False):
         state_summary.append(f"IN class lesson plan generated successfully, URL is: {state.in_class_content_url}")
     if state.get("post_class_quiz_content_generated", False):
-        state_summary.append(f"POST class quiz generated successfully, URL is: {state["post_class_quiz_content_url"]}")
+        state_summary.append(f"POST class quiz generated successfully")
 
 
 
