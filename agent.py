@@ -70,7 +70,6 @@ def pre_class_generator(user_query:str)->dict:
     try:
         content_url = upload_content(content, "pre_class_notes")
     except Exception as e:
-        print(f"Error uploading content: {e}")
         return {"error": "Failed to upload content."}
     return {
         "pre_class_notes_url":content_url
@@ -103,7 +102,6 @@ def in_class_generator(user_query:str)->dict:
         content_url = upload_content(content, "in_class_lessons")
         return {"in_class_lessons_url": content_url}
     except Exception as e:
-        print(f"Error uploading content: {e}")
         return {"error": "Failed to upload content."}
     
 def post_class_generator(user_query:str)->dict:
@@ -129,7 +127,6 @@ def post_class_generator(user_query:str)->dict:
         content_url = upload_content(content, "post_class_quiz")
         return {"post_class_quiz_content_url": content_url}
     except Exception as e:
-        print(f"Error uploading content: {e}")
         return {"error": "Failed to upload content."}
 
 tools = [pre_class_generator, in_class_generator, post_class_generator]
